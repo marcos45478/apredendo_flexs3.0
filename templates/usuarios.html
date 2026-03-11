@@ -11,7 +11,17 @@
 
 <body>
     <div class="container">
-        <h1>Usuários Cadastrados</h1>
+        <div class="header">
+            <h1>Usuários Cadastrados</h1>
+            <div class="user-info">
+                <span>Bem-vindo, {{ session.usuario_nome }}{% if session.perfil == "admin" %} (ADMIN){% endif %}</span>
+                {% if session.perfil == "comum" %}
+                    <a href="{{ url_for('editar_perfil') }}" class="btn-link">Editar Meu Perfil</a>
+                {% endif %}
+                <a href="{{ url_for('logout') }}" class="btn-logout">Sair</a>
+            </div>
+        </div>
+        
         <table>
            <form method="get" action="/usuarios">
             <label for="busca">Busca pelo CPF</label>
@@ -37,6 +47,7 @@
                     <th>CPF</th>
                     <th>E-mail</th>
                     <th>Idade</th>
+                    <th>Perfil</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -47,15 +58,28 @@
                     <td>{{ usuario.cpf }}</td>
                     <td>{{ usuario.email }}</td>
                     <td>{{ usuario.idade }}</td>
+                    <td>
+                        {% if usuario.perfil == "admin" %}
+                            <strong style="color: red;">🔑 Admin</strong>
+                        {% else %}
+                            Comum
+                        {% endif %}
+                    </td>
                     
                     <td>
-                        <form action="{{ url_for('deletar_usuario') }}" 
-                        method="POST"
-                        onsubmit="return confirm('Tem certeza que deseja deletar este usuário?')">
-                        <input type="hidden" name="cpf" value="{{ usuario.cpf }}">
-                        <button type="submit">Excluir</button>
-                        <button type="reset">Edita</button>
-    </form>
+                        {% if session.perfil == "admin" and usuario.cpf != session.usuario_cpf %}
+                            <form action="{{ url_for('deletar_usuario') }}" 
+                            method="POST"
+                            onsubmit="return confirm('Tem certeza que deseja deletar este usuário?')"
+                            style="display: inline;">
+                            <input type="hidden" name="cpf" value="{{ usuario.cpf }}">
+                            <button type="submit" class="btn-delete">Excluir</button>
+                            </form>
+                        {% elif usuario.cpf == session.usuario_cpf %}
+                            <a href="{{ url_for('editar_perfil') }}" class="btn-edit">Editar</a>
+                        {% else %}
+                            <span style="color: gray;">-</span>
+                        {% endif %}
                     </td>
                 </tr>
                 {% endfor %}

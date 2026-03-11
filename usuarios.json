@@ -1,51 +1,11 @@
 [
     {
-        "id": "d3307637-6c82-4dc1-b352-2c9b0cb82dfb",
-        "nome": "Marcos vinicius coelho da silva",
-        "cpf": "332.432.434-54",
-        "email": "admin@email.com",
-        "idade": "31",
-        "senha": "scrypt:32768:8:1$WYlleJFSB9qATEYZ$2624fe50a2d8c1c2a721b19f91454785ce2bfb529a761030a0ba1c76fd216e34e93e737d389f5360c6fe5b04cb4ec7df9064f98733c3a13ad912771b2d915bba"
-    },
-    {
-        "id": "23e0ed3d-a43b-474f-8c37-70647d5389b2",
-        "nome": "teteu",
-        "cpf": "454.553.435-43",
-        "email": "admin4@email.com",
-        "idade": "31",
-        "senha": "scrypt:32768:8:1$FFoERpEIJtTroel5$177017890476cb6b64b8099e03868e4331dd3be0253495c6e11376dd89479319fd9fae9a5af6461c03ff438725d2275fc4bee6d1d19d30519e73f7f2f7744999"
-    },
-    {
-        "id": "0e8b5638-fa2e-49af-9e9c-e72ffd57ec4b",
-        "nome": "teteu2",
-        "cpf": "32131232321",
-        "email": "admin1@email.com",
-        "idade": "54",
-        "senha": "scrypt:32768:8:1$GC6lMqHH91hYxmp6$53688b8462b97403dcc02dea77c52cbbde78d5dad492e597be4cb102210224d3314828bc0dbb150b5856dc3d0ca9a9c6041935d7b85e283a908f33eca85bae0d"
-    },
-    {
-        "id": "0a6fb165-0a48-4b50-b2b3-12e2007b418e",
-        "nome": "Adimi",
+        "id": "94dbfd2c-459a-4e93-b087-cb32c0e194a8",
+        "nome": "Marcos",
         "cpf": "11725411083",
-        "email": "adminsuper@email.com",
+        "email": "adimin@gamil.com",
         "idade": "21",
-        "senha": "scrypt:32768:8:1$z7gEF87wwnOlTRlI$4e16587e6a05d9cc70f6427ba1e98b341d41a77c1cbe8410565a12e142fa7d6151c9b9e6971141228cb4f46e996c0a112bb8153da649482a86da35c714c843f5"
-    },
-    {
-        "id": "d946974c-ea7e-49fe-8e4d-18a70d5a5000",
-        "nome": "teteu",
-        "cpf": "13226617423",
-        "email": "vino@gamil.com",
-        "idade": "32",
-        "senha": "scrypt:32768:8:1$26MR3iPT1mEapZlj$e29596351a2d7d1b574285cb09f77bd5af3145e8084ca5f37e6cf8b588d9826e6c829cd800c112de201592e1e05f51e7c84c9336d53c1f3002ffeae7c3e2b1f7"
-    },
-    {
-        "id": "4e5a2c46-f057-4a84-8261-0de1426509a9",
-        "nome": "Marcus vin",
-        "cpf": "11725411083",
-        "email": "admin4@email.com",
-        "idade": "21",
-        "senha": "scrypt:32768:8:1$JdYRz2MtjvaaCn7Y$dbb62d0b4b8e05bb75d3a2d4201c31be50004c23daa67098cbabadf217f48d90339ceb5ddb730541c53bf46cc9ddda374f048a5e0ee6e8027748035e5baba142",
+        "senha": "scrypt:32768:8:1$P3nPVcw92mRUL4J3$a82fabbd67516cc76ab1457a4c770fc28e8a2ff0abde064896d4589c49807ccc8edab37e01c39a352dbcbf26450cc5352162bfd7949c7d5f8c00b9dedd1c38a3",
         "perfil": "admin"
     }
 ]
