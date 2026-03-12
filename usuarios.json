@@ -7,5 +7,23 @@
         "idade": "21",
         "senha": "scrypt:32768:8:1$P3nPVcw92mRUL4J3$a82fabbd67516cc76ab1457a4c770fc28e8a2ff0abde064896d4589c49807ccc8edab37e01c39a352dbcbf26450cc5352162bfd7949c7d5f8c00b9dedd1c38a3",
         "perfil": "admin"
+    },
+    {
+        "id": "fe2810bd-5b69-41d8-9fbf-2d5c752ac04f",
+        "nome": "Marcus vin",
+        "cpf": "13226617400",
+        "email": "vini.marco@gamil.com",
+        "idade": "31",
+        "senha": "scrypt:32768:8:1$ZXuUaEKH8WWsbC4b$5a25ffb32d199c53e48e95816dd8ddca2f6e19fa017dcc546f888f9a6f1102ed8d6b1ac2fc764b5ba738745ccee22d098f9e0c8b3820648e1f40998b4c85ab22",
+        "perfil": "comum"
+    },
+    {
+        "id": "2001baf6-c949-4fdf-bfc0-cee07dd9c856",
+        "nome": "Marcos vinicius coelho da silva",
+        "cpf": "13226617401",
+        "email": "vini.marcos@gamil.com",
+        "idade": "21",
+        "senha": "scrypt:32768:8:1$w6dDuSLjwDnW1bGD$a6ff0898174b97fce21aad34e570fc7444d4cec077df65f7c435faa6f099b4da06ca33c08bbee31205b4efae4f02d9e9a6dce567fecc4d5aaa69860c0df97fbe",
+        "perfil": "comum"
     }
 ]

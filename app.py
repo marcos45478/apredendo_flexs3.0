@@ -5,6 +5,7 @@ import uuid  # usado para gerar IDs únicos (uuid4)
 import re
 from werkzeug.security import generate_password_hash, check_password_hash
 from models.usuario import Usuario
+from models.sessao_usuario import SessaoUsuario
 
 app = Flask(__name__)
 # chave necessária para utilizar `flash` e sessões
@@ -86,13 +87,10 @@ def login():
         # Procura o usuário com o CPF e valida a senha
         for usuario in usuarios:
             if usuario["cpf"] == cpf_limpo and check_password_hash(usuario["senha"], senha_digitada):
-                
-                # Cria a sessão
-                session["usuario_id"] = usuario["id"]
-                session["usuario_nome"] = usuario["nome"]
-                session["usuario_cpf"] = usuario["cpf"]
-                session["perfil"] = usuario.get("perfil", "comum")
-                
+                # Cria a sessão usando a classe apropriada
+                sess = SessaoUsuario(session)
+                sess.login(usuario)
+
                 flash("Login realizado com sucesso", "sucesso")
                 return redirect(url_for("buscar_usuarios"))
         
@@ -203,12 +201,13 @@ def buscar_usuarios():
 @app.route("/usuarios/deletar", methods=["POST"])
 def deletar_usuario():
     # Verifica se o usuário está logado
-    if "usuario_cpf" not in session:
+    sessao = SessaoUsuario(session)
+    if not sessao.esta_logado():
         flash("Você precisa estar logado", "erro")
         return redirect(url_for("tela_login"))
     
     # Verifica se é admin
-    if session.get("perfil") != "admin":
+    if not sessao.eh_admin():
         flash("Apenas administradores podem excluir usuários", "erro")
         return redirect(url_for("buscar_usuarios"))
 
@@ -232,18 +231,21 @@ def deletar_usuario():
 
 @app.route("/logout")
 def logout():
-    session.clear()
+    sess = SessaoUsuario(session)
+    sess.logout()
     flash("Logout realizado com sucesso", "sucesso")
     return redirect(url_for("home"))
 
 @app.route("/editar-perfil", methods=["GET", "POST"])
 def editar_perfil():
     # Verifica se o usuário está logado
-    if "usuario_cpf" not in session:
+    sessao = SessaoUsuario(session)
+
+    if not sessao.esta_logado():
         flash("Você precisa estar logado para editar seu perfil", "erro")
         return redirect(url_for("tela_login"))
     
-    cpf_usuario = session.get("usuario_cpf")
+    cpf_usuario = sessao.cpf()
     usuarios = carregar_usuarios()
     
     # Encontra o usuário atual
@@ -317,5 +319,4 @@ def editar_perfil():
     return render_template("editar-perfil.html", usuario=usuario_atual)
 
 if __name__== '__main__':
-    app.run(debug=True, port=5001)
     app.run(debug=True, port=5001)
